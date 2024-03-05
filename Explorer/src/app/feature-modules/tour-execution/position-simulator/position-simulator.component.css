@@ -1,0 +1,112 @@
+.position-simulator-wrapper{
+    background-image: url("../../../../assets/images/explore.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    overflow-y: auto;
+    padding-top: 100px;
+}
+
+.map{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 600px;
+    margin: auto;
+}
+
+.btn-set{  
+    background-color: var(--primary-color);
+    color: white;
+    margin: 10px;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.btn-set:hover{  
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+}
+
+.startTourButtonEnabled {
+    cursor: not-allowed;
+}
+
+.btn-update, .btn-complete, .btn-activate, .btn-picture{
+    background-color: var(--primary-color);
+    color: white;
+    margin: 10px;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.disabled{
+    background-color: grey !important;
+}
+
+.btn-save:hover{  
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+}
+
+.btn-abandon{
+    background-color: var(--fifth-color);
+    color: white;
+    margin: 10px;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+
+.btn-update:hover{  
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+}
+
+.btn-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.centered-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rate-form {
+  width: 500px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 0px 35px 35px 35px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.buttons{
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+::ng-deep .blog-snack {
+    --mdc-snackbar-container-color:var(--primary-color);
+    --mat-mdc-snack-bar-button-color:var(--third-color);
+    --mdc-snackbar-supporting-text-color: white;
+    --mat-snack-bar-button-color:var(--third-color);
+    margin-top: 100px !important;
+  }

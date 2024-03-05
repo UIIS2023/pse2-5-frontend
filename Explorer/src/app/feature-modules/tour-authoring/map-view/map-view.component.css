@@ -1,0 +1,89 @@
+.map-view-container {
+  height: 100vh;
+  margin: 0;
+  background-image: url("../../../../assets/images/explore.jpg");
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 -16em 60em var(--third-color);
+}
+
+.sections {
+  padding-top: 80px;
+  height: 100%;
+  display: flex;
+}
+
+.menu-section {
+  width: 25%;
+  height: 100%;
+}
+
+.map-section {
+  width: 100%;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+
+.button-section {
+  background-color: #fff;
+  border-radius: 15px; 
+  margin:10px; 
+}
+
+.button-section .upper-row{
+  display: flex;
+  justify-content: space-between;
+}
+.button-section .upper-row .button {
+  margin-right: 20px; 
+}
+
+.button-section .lower-row{
+  display: flex;
+  justify-content: space-between;
+}
+.button-section .lower-row .button {
+  margin-right: 20px; 
+  margin-top: 5px;
+}
+
+.button-label {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 12px;
+  width: 100%;
+  word-wrap: break-word;
+}
+.button-color {
+  background-color: #7c875a;
+  color: white;
+}
+
+.tours-section {
+  background-color: #fff;
+  border-radius: 15px; 
+  margin:10px; 
+  overflow: auto;
+  max-height: 52vh;
+}
+.tour-card{
+  padding: 24px;
+  width: 100%;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tour-card button {
+  padding: 10px 20px;
+  border: none; 
+  border-radius: 4px;
+  background-color: #7c875a;
+  color: white !important;
+  margin-left: 65%;
+}

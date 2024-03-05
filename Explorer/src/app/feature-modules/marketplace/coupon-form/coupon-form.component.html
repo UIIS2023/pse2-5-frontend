@@ -1,0 +1,49 @@
+<div class="main-container">
+    <div class="centered-container">
+    <h2 class="form-title">{{title}} coupon</h2>
+      <form class="couponCreationForm" [formGroup]="couponForm">
+        <div class="inputFieldContainer">
+          <div class="inputFieldContainer--row">
+            <mat-form-field class="form-field">
+              <mat-label>Code:</mat-label>
+              <input matInput formControlName="code" type="text" readonly/>
+            </mat-form-field>
+          </div>
+          <div class="inputFieldContainer--row">
+            <button class="generate-button" (click)="generateCode()" mat-raised-button>Generate code</button>
+          </div>
+          <div class="inputFieldContainer--row">
+            <mat-form-field class="form-field">
+                <mat-label>Discount:</mat-label>
+                <input matInput formControlName="discount" type="number"/>
+                <span matSuffix>%</span>
+            </mat-form-field>
+          </div>
+          <div class="inputFieldContainer--row">
+            <mat-form-field class="form-field">
+                <mat-label>Expiration date:</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="expirationDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="inputFieldContainer--row">
+            <mat-form-field class="form-field">
+                <mat-label>Tour:</mat-label>
+                <mat-select class="selectDiff" formControlName="tourId">
+                  <mat-option value=0>All tours</mat-option>
+                  <mat-option *ngFor="let tour of tours" [value]="tour.id">{{tour.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+          </div>
+        </div>
+  
+        <div class="inputFieldContainer--row">
+            <button class="submit-button" (click)="submit()" type="submit" [disabled]="!couponForm.valid" mat-raised-button>{{title}}</button>
+        </div>
+      
+      </form>
+    </div>
+  </div>
+  

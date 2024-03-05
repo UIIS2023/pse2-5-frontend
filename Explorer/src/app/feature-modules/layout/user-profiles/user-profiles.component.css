@@ -1,0 +1,121 @@
+.mat-card-wrapper {
+    background-image: url("../../../../assets/images/explore.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    padding-top: 100px;
+    overflow-y: auto;
+}
+
+.search-wrapper{
+    background-color: var(--secondary-color) !important;
+    height: 10.5vh;
+}
+.search-bar {
+    margin-top: 10px;
+    width: 98%;
+
+    border-radius: 30px;
+}
+
+.search-icon{
+    font-size: 100px;
+}
+
+.example-section {
+    height: 60px;
+
+    color: var(--white) !important;
+    fill: currentColor;
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}
+
+.tour-selection{
+    margin-top: 10px;
+    width: 98%;
+}
+
+.search-button{
+    margin-bottom: 10px;
+    height: 50%;
+    border: 1px solid #3c732c;
+
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+}
+
+.example-card {
+    width: 65vw;
+    height: 300px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid grey;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+.example-card:hover {
+    transform: scale(1.01);
+}
+
+.avatar {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.action-buttons {
+    background-color: var(--primary-color);
+    border-radius: 50px;
+}
+
+.ab {
+    color: var(--white) !important;
+    fill: currentColor;
+}
+
+.box2 {
+    width: 300px;
+    border-width: 3px 3px 5px 5px;
+    border-radius: 4% 95% 6% 95%/95% 4% 92% 5%;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background: transparent;
+    border: solid black;
+    border-color: black;
+}
+
+.evenboxinner {
+    transform: rotate(2deg);
+    margin: auto;
+    padding: 0;
+    background: #ddd;
+    border: 1px solid #222;
+    box-shadow: 3px 3px 0 #222;
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.evenboxinner img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.follow-button {
+    background-color: #f5faf2;
+}
+
+.follwing-button {
+    background-color: var(--primary-color);
+    color: var(--white) !important;
+    fill: currentColor;
+}

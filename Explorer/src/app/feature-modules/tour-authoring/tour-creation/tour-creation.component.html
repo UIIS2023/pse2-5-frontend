@@ -1,0 +1,14 @@
+<div>
+    <h1>Create new tour</h1>
+    <form class="tourCreationForm" [formGroup]="tourForm">
+        <mat-form-field class="form-field">
+            <mat-label>Name:</mat-label>
+            <input matInput formControlName="name" type="text" />
+        </mat-form-field>
+    </form>
+
+    <div class="dialog-buttons">
+        <button mat-button (click)="onCancelClick()">Cancel</button>
+        <button mat-button (click)="onCreateClick()">Create</button>
+    </div>
+</div>

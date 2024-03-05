@@ -1,0 +1,56 @@
+<div id="reported-problems">
+    <div id="reported-problems-details">
+        <div class="reported-problems">
+            <div class="card-container">
+                <mat-card *ngFor="let tp of reportedProblems" class="problem-card">
+                    <mat-card-subtitle class="subtitle-container">
+                        <div class="subtitle">
+                            <p> {{problemCategoryToString(tp.category)}}</p>
+                            <p> {{problemPriorityToString(tp.priority)}} priority</p>
+                        </div>
+                        <div class="subtitle">
+                            <p class="solved-badge" *ngIf="tp.isSolved">SOLVED</p>
+                            <p> {{ tp.time | date : "dd/MM/yyyy HH:mm" }}</p>
+                        </div>
+                    </mat-card-subtitle>
+                    <mat-card-title class="card-title">
+                        <p>{{tp.description}}</p>
+                    </mat-card-title>
+                    <mat-card-content class="card-content">
+                        <mat-checkbox class="solve-checkbox" *ngIf="(!tp.isSolved) && (user.role === 'tourist')" [(ngModel)]="tp.isSolved"
+                            (ngModelChange)="updateProblem(tp)">Mark as solved</mat-checkbox>
+                        <mat-expansion-panel class="messages-panel" (opened)="markMessagesAsRead(tp)">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Messages
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="message-card-container">
+                                <mat-card *ngFor="let m of tp.messages" class="message-card">
+                                    <mat-card-subtitle class="subtitle-container">
+                                        <div>{{ m.senderName === user.username ? 'You' : m.senderName }} :</div>
+                                        <div>{{m.creationTime | date : "dd/MM/yyyy HH:mm"}}</div>
+                                    </mat-card-subtitle>
+                                    <mat-card-title class="message-description">
+                                        <p>{{m.description}}</p>
+                                    </mat-card-title>
+                                </mat-card>
+                            </div>
+                            <form [formGroup]="messageForm" *ngIf="!tp.isSolved">
+                                <div class="message-form">
+                                    <mat-form-field class="message-field">
+                                        <mat-label>Write a message</mat-label>
+                                        <input matInput formControlName="description" type="text" />
+                                    </mat-form-field>
+                                    <button class="send-button" mat-icon-button (click)="addMessage(tp)">
+                                        <mat-icon>send-button</mat-icon>
+                                    </button>
+                                </div>
+                            </form>
+                        </mat-expansion-panel>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

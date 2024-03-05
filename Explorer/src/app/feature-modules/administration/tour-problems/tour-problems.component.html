@@ -1,0 +1,70 @@
+<div id="tour-problems">
+    <p>Tour problems</p>
+    <hr>
+    <div id="tour-problems-details" class="row">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tourst username</th>
+                        <th>Category</th>
+                        <th>Priority</th>
+                        <th>Description</th>
+                        <th>Time</th>
+                        <th>Author username</th>
+                        <th>Solved</th>
+                        <th>Give deadline</th>
+                        <th>Deadline</th>
+                        <th>Penalty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tp of tourProblems"[ngClass]="{'red':hasFiveDaysPassed(tp.time, tp.isSolved, HasDeadlinePassed(tp.time,tp.isSolved)),'red-border':HasDeadlinePassed(tp.deadline!,tp.isSolved)}">
+                        <td>{{tp.touristUsername}}</td>
+                        <td>{{problemCategoryToString(tp.category)}}</td>
+                        <td>{{problemPriorityToString(tp.priority)}}</td>
+                        <td>{{tp.description}}</td>
+                        <td>{{tp.time | date: 'medium'}}</td>
+                        <td>{{tp.authorUsername}}</td>
+                        <td>{{tp.isSolved ? 'Yes' : 'No' }}</td>
+                        <td>
+                            <button *ngIf= "hasFiveDaysPassed(tp.time, tp.isSolved, !HasDeadline(tp.deadline))" (click)="DeadlineClicked(tp.id)" class="deadline-button">Give deadline</button>
+                            <button *ngIf= "hasFiveDaysPassed(tp.time, tp.isSolved, HasDeadline(tp.deadline))" (click)="DeadlineClicked(tp.id)" class="deadline-button">Update deadline</button>
+                        </td>
+                        <td>
+                            <span *ngIf= "hasFiveDaysPassed(tp.time, tp.isSolved, HasDeadline(tp.deadline))">{{tp.deadline | date: 'medium'}}</span>
+                        </td>
+                        <td *ngIf="HasDeadlinePassed(tp.deadline!,tp.isSolved)"> 
+                            <button (click)="GivePenalty(tp)" class="deadline-button">Give penalty</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row"  *ngIf="isCalnedar">
+                <form [formGroup]="deadlineForm">
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" formControlName="deadline">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                       
+                    </mat-form-field>
+                    <button (click)="GiveDeadline()" class="deadline-button little-margin">Give deadline</button>
+                    <span class="row red-letters" *ngIf="!this.isValid">
+                        <p>Date is not valid!</p>
+                    </span>
+                </form>
+               
+               
+            </div>
+            <br>
+            
+            
+
+        </div>
+    </div>
+</div>

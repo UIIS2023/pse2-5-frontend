@@ -1,0 +1,34 @@
+footer {
+  background-image: url(../../../../assets/images/footer1.png);
+  object-fit: cover;
+  font-size: 14px;
+  font-family: "Poppins";
+  color: var(--white);
+  position: relative;
+  width: 100vw;
+}
+
+p {
+  font-family: "Great Vibes";
+  font-size: 40px;
+  text-align: center;
+  margin-top: 250px;
+}
+
+.social-icons ul {
+  margin-top: 60px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.social-icons img {
+  max-width: 30px;
+}

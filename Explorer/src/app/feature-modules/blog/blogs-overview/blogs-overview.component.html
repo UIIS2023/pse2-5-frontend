@@ -1,0 +1,44 @@
+<div class="blogs-overview">
+    <p class="space-between"><mat-label class="white-label">Blogs</mat-label>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="0" (click)="filterBlogs(0)" class="disable-selection">Draft</mat-radio-button>
+        <mat-radio-button value="1" (click)="filterBlogs(1)" class="disable-selection">Published</mat-radio-button>
+        <mat-radio-button value="2" (click)="filterBlogs(2)" class="disable-selection">Closed</mat-radio-button>
+        <mat-radio-button value="3" (click)="filterBlogs(3)" class="disable-selection">Famous</mat-radio-button>
+        <mat-radio-button value="4" (click)="filterBlogs(4)" class="disable-selection">Active</mat-radio-button>
+      </mat-radio-group>
+    </p>
+    <hr>
+    <div class="card-container">
+        <mat-card *ngFor="let b of blogs;let i = index" class="blog-card" (click)="openBlogPage(b)">
+            <div class="metadata">
+                Posted by <span class="user-subreddit">{{b.username}}</span>
+            </div>
+            <mat-card-title class="blog-title">
+                <p>{{b.title}}</p>
+                <p *ngIf="b.status==0">Draft</p>
+                <p *ngIf="b.status==1">Published</p>
+                <p *ngIf="b.status==2">Closed</p>
+                <p *ngIf="b.status==3">Famous</p>
+                <p *ngIf="b.status==4">Active</p>
+            </mat-card-title>
+            <mat-card-content class="blog-content" [innerHTML]="renderMarkdown(b.description)">
+            </mat-card-content>
+            <div class="bottom-buttons">
+                <button class="upvote-button" (click)="rateBlog(true,$event,i,b)" [ngClass]="{ 'orange-button': flags[i]>=1 }">
+                    <mat-icon>thumb_up</mat-icon>
+                </button>
+                {{b.ratingSum}}
+                <button class="downvote-button" (click)="rateBlog(false,$event,i,b)" [ngClass]="{ 'orange-button': flags[i]<=-1 }">
+                    <mat-icon>thumb_down</mat-icon> 
+                </button>
+                <button class="comment-button" mat-icon-button>
+                    <mat-icon>comment</mat-icon>
+                </button>
+            </div>
+        </mat-card>
+    </div>
+</div>
+<button class="bottom-right-button" mat-icon-button (click)="createBlog()">
+    <mat-icon>add</mat-icon>
+</button>

@@ -1,0 +1,22 @@
+form {
+    margin-top:150px;
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    width: 400px;
+    display:flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+p {
+    margin-top: 10px;
+}
+
+.login-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

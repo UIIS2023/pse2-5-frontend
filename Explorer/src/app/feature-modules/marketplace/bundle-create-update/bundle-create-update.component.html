@@ -1,0 +1,49 @@
+<div class="main">
+    <mat-card class="card-container">
+        
+        <div class="tours-overview">
+            <div class="title-container">
+                <h2>Available tours</h2>
+                <div class="example-container" >
+                    <div
+                    cdkDropList
+                    #todoList="cdkDropList"
+                    [cdkDropListData]="tours"
+                    [cdkDropListConnectedTo]="[doneList]"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of tours" cdkDrag>{{item.name}} ( {{item.price}} AC)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="title-container">
+                <h2>Bundle tours ({{calculate_sum}} AC)</h2>
+                <div class="example-container">
+                    <div
+                    cdkDropList
+                    #doneList="cdkDropList"
+                    [cdkDropListData]="selectedTours"
+                    [cdkDropListConnectedTo]="[todoList]"
+                    class="example-list"
+                    (cdkDropListDropped)="drop($event)">
+                        <div class="example-box" *ngFor="let item of selectedTours" cdkDrag>{{item.name}} ( {{item.price}} AC)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="bundleCreateForm" autocomplete="off" class="form-overview">
+                <mat-form-field [style.width.px]=327>
+                    <mat-label>Bundle title</mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+                <mat-form-field [style.width.px]=327>
+                    <mat-label>Bundle price</mat-label>
+                    <input matInput type="text" formControlName="price">
+                </mat-form-field>
+                
+                
+        </form>
+        <button mat-raised-button class="button-padding" *ngIf="id==null" (click)="createBundleClick()">Create</button> 
+        <button mat-raised-button class="button-padding" *ngIf="id!=null" (click)="updateBundleClick()">Update</button>
+    </mat-card>
+</div>

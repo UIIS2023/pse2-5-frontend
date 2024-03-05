@@ -1,0 +1,51 @@
+<div class="search-container">
+    <form class="search-form" [formGroup]="searchForm">
+        <div>
+            <div class="search-properties-container">
+                <div class="form-fields-container">
+                    <mat-form-field class="form-field" >
+                        <input matInput placeholder="Name" formControlName="name">
+                    </mat-form-field>
+                    
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Tag" formControlName="tag">
+                    </mat-form-field>
+                    
+                    <div class="tag-button-container">
+                        <button mat-flat-button class="add-button" (click)="addTag()">
+                            Add tag
+                        </button>
+                    </div>
+
+                    <mat-form-field class="form-field">
+                        <mat-select placeholder="Difficulty" (selectionChange)="onDifficultySelected($event)" formControlName="difficulty">
+                            <mat-option *ngFor="let option of difficultyOptions" [value]="option">{{ option }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+        
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Start price" formControlName="startPrice" min="0" max="10000" type="number">
+                    </mat-form-field>
+
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="End price" formControlName="endPrice" min="0" max="10000" type="number" >
+                    </mat-form-field>
+                        
+                    <div class="search-button-container">
+                        <button mat-flat-button class="search-button" (click)="search($event)">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="tags-and-difficulty-container">
+                <mat-label *ngIf="tagsForSearch">Tags for search:</mat-label>
+                
+                <span class="tags-for-search" *ngFor="let tag of tagsForSearch">
+                    {{ tag }}
+                </span>
+            </div>
+        </div>
+    </form>            
+</div>
+

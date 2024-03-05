@@ -1,0 +1,11 @@
+Model Information:
+* title:	VW Bus 1971
+* source:	https://sketchfab.com/3d-models/vw-bus-1971-4e19f98e9e804a309ddd81e8b235ab88
+* author:	Batuhan13 (https://sketchfab.com/Batuhan13)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "VW Bus 1971" (https://sketchfab.com/3d-models/vw-bus-1971-4e19f98e9e804a309ddd81e8b235ab88) by Batuhan13 (https://sketchfab.com/Batuhan13) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

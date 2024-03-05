@@ -1,0 +1,102 @@
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  z-index: 1000;
+  background-color: transparent;
+  width: 100%;
+}
+
+.navbar-brand img.logo {
+  max-height: 40px;
+  margin-left: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: white !important;
+}
+
+
+.navbar-light .navbar-toggler-icon {
+  background-color: white;
+}
+.shopping-cart label{
+  font-size: small;
+}
+
+
+
+
+.navbar-light .navbar-nav .nav-link svg,
+.navbar-light .navbar-toggler-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  margin: 0 10px;
+  margin-right: 6px;
+}
+
+.navbar-light .navbar-nav .dropdown-menu .dropdown-item {
+  color: black;
+}
+
+.navbar-light .navbar-nav .dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.navbar-light .navbar-nav .nav-item.active .nav-link {
+  color: #17a2b8 !important;
+}
+
+
+.navbar-light .navbar-nav .nav-item:hover .nav-link {
+  color: var(--primary-color) !important;
+}
+
+.notifiction-bell {
+  fill: white !important;
+}
+
+.navbar-light.navbar-wrapper {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notifications{
+  margin: 0 10px;
+  margin-left: 14px;
+}
+
+.notifications ul {
+  z-index: 1000;
+}
+
+.notifiction-bell{
+  color: var(--white) !important;
+  fill: currentColor;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  color: var(--white);
+}
+.dropdown > a {
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+  font-family: "Poppins";
+  position: relative;
+  border: 0;
+}
+
+.dropdown-menu{
+  background-image: url("../../../../assets/images/followersBackground.jpg");
+  background-size: cover;
+}
+
+.wallet{
+  font-size: small;
+  color: var(--white);
+  margin-top: 5px;
+}

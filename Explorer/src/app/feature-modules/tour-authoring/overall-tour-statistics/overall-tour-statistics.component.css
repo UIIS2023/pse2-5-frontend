@@ -1,0 +1,66 @@
+.overall-tour-statistics {
+    padding: 100px;
+    background-image: url("../../../../assets/images/explore.jpg");
+    height: auto;
+    min-height: 100%;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 100px;
+    min-width: 100%;
+    width: auto;
+  }
+  
+/* .column {
+    
+} */
+
+.column > h2{
+    color: white;
+    font-size: 30px;
+}
+
+.tour-card {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.card-image{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding:20px;
+    color: white;
+}
+
+.card-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 5px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.card-description {
+    font-size: 16px;
+}
+
+.circles-container {
+    display:flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+.filled-circle {
+    color: var(--secondary-color);
+}
+
+.empty-circle { 
+    color: #ccc;
+}
+
+.error-message{
+    color: red;
+}

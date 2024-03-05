@@ -1,0 +1,35 @@
+<div id="equipment">
+
+    <table>
+        <tr>
+            <th>UserId</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Balance</th>
+        </tr>
+        <tr *ngFor="let user of users"[ngClass]="{'red': !user.isActive}" >
+            <td>{{ user.userId }}</td>
+            <td>{{ user.username }}</td>
+            <td>********</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td *ngIf="user.role === 'Tourist';else elseBlock" >{{ user.balance }}</td>
+
+            <ng-template #elseBlock>
+              <td>NaN</td>
+            </ng-template>
+
+
+            <td *ngIf="user.isActive && user.role === 'Tourist';else elseBlock1">
+              <input class="coin-input" type="number" min="0" #coinInput>
+              <button (click)="addCoins(user,coinInput.value)" class="add-coins-button">Add Coins</button>
+            </td>
+            <ng-template #elseBlock1>
+              <td ></td>
+            </ng-template>
+            <td><button *ngIf="user.isActive" (click)="OnBlockClicked(user)" class="block-button">Block</button></td>
+          </tr>
+    </table>
+</div>

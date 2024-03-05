@@ -1,0 +1,48 @@
+<body>
+  <div class="table-wrapper">
+    <table class="mat-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Difficulty</th>
+            <th>Distance(km)</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let tour of shoppingCart.itemsInCart" class="tour-row" [ngClass]="{'bundle-border': tour.bundleId}">
+            <td *ngIf="!tour.firstInBundle"> {{tour.name}}</td>
+            <td *ngIf="tour.firstInBundle"> From bundle: <br> {{tour.name}}</td>
+            <td>{{ tour.description }}</td>
+            <td>{{ statusMap.get(tour.difficulty) }}</td>
+            <td>{{ tour.distanceInKm }}</td>
+            <td *ngIf="!tour.firstInBundle && !tour.bundleId">{{ tour.price | currency }}</td>
+            <td *ngIf="!tour.firstInBundle && tour.bundleId"> {{ 0 | currency }}</td>
+            <td *ngIf="tour.firstInBundle">{{ tour.price | currency }}</td>
+            <td>
+              <button mat-icon-button (click)="removeFromCart(tour)" *ngIf="tour.firstInBundle || !tour.bundleId">
+                <mat-icon style="color: red;">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Wallet balance: {{ balance }} AC</p>
+      <p>Total Price: {{ total }} AC</p>
+  </div>
+
+ 
+  <div class="coupon-button-container">
+    <button mat-raised-button color="primary" (click)="openCouponDialog()" [disabled]="isCartEmpty">Enter Coupon</button>
+  </div>
+
+  <div class="checkout-button-container">
+    <button mat-raised-button color="primary" (click)="checkout()" [disabled]="isCartEmpty || total > balance">Checkout</button>
+  </div>
+
+
+</body>

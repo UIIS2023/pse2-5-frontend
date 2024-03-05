@@ -1,0 +1,31 @@
+.main-container {
+  background-image: url("../../../../assets/images/explore.jpg");
+  min-height: 100%;
+  height: auto;
+}
+
+.text-code {
+  text-align: center;
+  color: aliceblue;
+  font-size: 30px;
+  width: 240px;
+  margin-top: 10px;
+}
+
+.coupon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .coupon-input {
+    margin-bottom: 16px; 
+    width: 100%;
+  }
+  
+  .submit-button {
+    font-size: 25px;
+    background-color: green;
+  }

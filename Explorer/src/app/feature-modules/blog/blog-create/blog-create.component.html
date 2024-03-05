@@ -1,0 +1,43 @@
+<div class="create-blog">
+  <div class="card-container">
+    <mat-card class="blog-card">
+      <mat-card-title class="blog-title">
+        <p>Create new blog</p>
+      </mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="blogCreateForm" autocomplete="off">
+          <div class="create-form">
+            <mat-form-field>
+              <mat-label>Title</mat-label>
+              <input matInput type="text" formControlName="title" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Description</mat-label>
+              <textarea class="style-text-area" matInput formControlName="description" cdkTextareaAutosize></textarea>
+            </mat-form-field>
+            <mat-card class="equipment-card" *ngIf="tourId">
+              <mat-card-title class="blog-title">Equipment used on tour</mat-card-title>
+              <mat-card-content class="equipment-container">
+                <div *ngFor="let equipment of myEquipment">
+                  <mat-checkbox (change)="updateMyEquipment(equipment)" class="equipment-checkbox">
+                    {{ equipment.name }}
+                  </mat-checkbox>
+                </div>
+              </mat-card-content>
+            </mat-card>
+            <button mat-button type="submit" (click)="createBlog()" class="save-button">
+              Save
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="blog-card">
+      <mat-card-title class="blog-title">Preview</mat-card-title>
+      <mat-card-content class="blog-content">
+        <div class="displayForm" [innerHTML]="renderMarkdown()">
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

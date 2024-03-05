@@ -1,0 +1,34 @@
+<div class="club">
+    <p>Clubs</p>
+    <hr>
+    <div class="card-container">
+        <mat-card *ngFor="let c of club" class="card">
+            <img [src]="c.clubPicture" alt="Club Picture" class="card-img-top" />
+            <br>
+            <div class="card-body">
+                <h5 class="card-title">{{c.name}}</h5>
+                <p class="card-text">{{c.description}}</p>
+                <p class="card-text">Owner:{{c.touristId}}</p>
+            </div>
+            <mat-card-actions class="card-actions">
+                <button class="card-button" (click)="deleteClub(c)" mat-icon-button [disabled]="!canUserDelete(c)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                <button class="card-button" (click)="onEditClicked(c)" mat-icon-button [disabled]="!canUserEdit(c)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <button class="bottom-right-button" (click)="onAddClicked()" [disabled]="userHasCreatedClub" mat-icon-button>
+        <mat-icon>add</mat-icon>
+    </button>
+<div>
+    <xp-club-form *ngIf="shouldRenderClubForm" (clubUpdated)="getClubs()" [club]="selectedClub"
+        [shouldEdit]="shouldEdit"></xp-club-form>
+    <div class="owner-panel">
+        <xp-club-kick *ngIf="shouldRenderInviteKick" [ClubId]="selectedClub.id!"></xp-club-kick>
+        <xp-club-invite *ngIf="shouldRenderInviteKick" [ClubId]="selectedClub.id!"></xp-club-invite>
+        <xp-user-pending-req *ngIf="shouldRenderInviteKick" [ClubId]="selectedClub.id!"></xp-user-pending-req>
+    </div>
+</div>

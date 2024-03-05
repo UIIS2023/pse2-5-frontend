@@ -1,0 +1,89 @@
+.landing-page-wrapper{
+  height: 100vh;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.content{
+  padding: 8% 10%;
+  text-align: left;
+  font-size: 26px;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+h1{
+  font-size: 50px;
+  color: black;
+}
+
+p{
+  color: black;
+}
+
+.rowButtons{
+  position: fixed;
+  bottom: 10%; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%; 
+}
+
+.rowButtons :button{
+  color: rgba(0, 0, 0, 0.02)s; 
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sign-position {
+  position: fixed;
+  right: 8%;
+  bottom: 40%;
+  height: 30vh;
+}
+
+.sign-button {
+  display:block;
+  font-size: 15px;
+  position: absolute;
+  right: 30%;
+  width: 40%;
+  height: 40px;
+  background-color: #01735C;
+  border-color: white;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.sign-button:hover{
+  background-color: #02BF99;
+  color: white;
+}
+
+.sign-button-1 {
+  top: 10px;
+}
+
+.sign-button-2 {
+  top: 60px;
+}
+
+.sign-button-3 {
+  top: 110px;
+}
+
+.sign-button-4 {
+  top: 160px;
+}

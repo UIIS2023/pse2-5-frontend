@@ -1,0 +1,136 @@
+<div class="overall-tour-statistics">
+
+    <div class="card-container">
+        <div class="column">
+          <h2>TOP3 Attended Tours:</h2>
+            <div class="content">
+                <mat-card *ngFor="let t of attendedTours;let i=index"  class="tour-card">
+                    <div class="card-image" style="background-image: url('https://www.flimslaax.com/fileadmin/Daten/0Flims_Laax_Bilder/3-Outdoor/3-2-Wandern/3-2-1-Wanderwege/flims_laax_falera_wanderwege2.jpg');">
+                        <mat-card-title class="card-title">
+                            <p>{{t.name}}</p>
+                            <p>{{t.price}}RSD</p>
+                        </mat-card-title>
+                        <p>{{tourStatus[t.status]}}</p>
+                        <p class="card-description">{{t.description}}</p>
+                    </div>
+                    <br>
+                    <mat-card-content class="card-content">
+                        <div class="circles-container">
+                            <p>Difficulty</p>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 0, 'empty-circle': t.difficulty !== 0}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 1, 'empty-circle': t.difficulty !== 1}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 2, 'empty-circle': t.difficulty !== 2}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 3, 'empty-circle': t.difficulty !== tourDifficulty.Pro}">fiber_manual_record</mat-icon>
+                        </div>
+                        <br>
+                        <div>
+                            <p>{{t.tags}}</p>
+                            <p>Number of people that attended this Tour: {{attendedToursStats[i].numberOfStats}}</p>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+      
+
+
+        <div class="column">
+          <h2>TOP3 Abandoned Tours:</h2>
+            <div class="content">
+                <mat-card *ngFor="let t of abandonedTours;let i=index" class="tour-card">
+                    <div class="card-image" style="background-image: url('https://www.flimslaax.com/fileadmin/Daten/0Flims_Laax_Bilder/3-Outdoor/3-2-Wandern/3-2-1-Wanderwege/flims_laax_falera_wanderwege2.jpg');">
+                        <mat-card-title class="card-title">
+                            <p>{{t.name}}</p>
+                            <p>{{t.price}}RSD</p>
+                        </mat-card-title>
+                        <p>{{tourStatus[t.status]}}</p>
+                        <p class="card-description">{{t.description}}</p>
+                    </div>
+                    <br>
+                    <mat-card-content class="card-content">
+                        <div class="circles-container">
+                            <p>Difficulty</p>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 0, 'empty-circle': t.difficulty !== 0}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 1, 'empty-circle': t.difficulty !== 1}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 2, 'empty-circle': t.difficulty !== 2}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 3, 'empty-circle': t.difficulty !== tourDifficulty.Pro}">fiber_manual_record</mat-icon>
+                        </div>
+                        <br>
+                        <div>
+                            <p>{{t.tags}}</p>
+                            <p>Number of people that abandoned this Tour: {{abandonedToursStats[i].numberOfStats}}</p>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+      
+
+
+        <div class="column">
+          <h2>TOP3 Popular(Sold) Tours:</h2>
+            <div class="content">
+                <mat-card *ngFor="let t of mostSoldTours;let i=index" class="tour-card">
+                    <div class="card-image" style="background-image: url('https://www.flimslaax.com/fileadmin/Daten/0Flims_Laax_Bilder/3-Outdoor/3-2-Wandern/3-2-1-Wanderwege/flims_laax_falera_wanderwege2.jpg');">
+                        <mat-card-title class="card-title">
+                            <p>{{t.name}}</p>
+                            <p>{{t.price}}RSD</p>
+                        </mat-card-title>
+                        <p>{{tourStatus[t.status]}}</p>
+                        <p class="card-description">{{t.description}}</p>
+                    </div>
+                    <br>
+                    <mat-card-content class="card-content">
+                        <div class="circles-container">
+                            <p>Difficulty</p>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 0, 'empty-circle': t.difficulty !== 0}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 1, 'empty-circle': t.difficulty !== 1}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 2, 'empty-circle': t.difficulty !== 2}">fiber_manual_record</mat-icon>
+                            <mat-icon [ngClass]="{'filled-circle': t.difficulty === 3, 'empty-circle': t.difficulty !== tourDifficulty.Pro}">fiber_manual_record</mat-icon>
+                        </div>
+                        <br>
+                        <div>
+                            <p>{{t.tags}}</p>
+                            <p>Number of people that bought this Tour: {{mostSoldToursStats[i].numberOfStats}}</p>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+
+        <div class="column">
+            <h2>TOP3 Rated Tours:</h2>
+                <div class="content">
+                    <mat-card *ngFor="let t of bestRatedTours;let i=index" class="tour-card">
+                        <div class="card-image" style="background-image: url('https://www.flimslaax.com/fileadmin/Daten/0Flims_Laax_Bilder/3-Outdoor/3-2-Wandern/3-2-1-Wanderwege/flims_laax_falera_wanderwege2.jpg');">
+                            <mat-card-title class="card-title">
+                                <p>{{t.name}}</p>
+                                <p>{{t.price}}RSD</p>
+                            </mat-card-title>
+                            <p>{{tourStatus[t.status]}}</p>
+                            <p class="card-description">{{t.description}}</p>
+                        </div>
+                        <br>
+                        <mat-card-content class="card-content">
+                            <div class="circles-container">
+                                <p>Difficulty</p>
+                                <mat-icon [ngClass]="{'filled-circle': t.difficulty === 0, 'empty-circle': t.difficulty !== 0}">fiber_manual_record</mat-icon>
+                                <mat-icon [ngClass]="{'filled-circle': t.difficulty === 1, 'empty-circle': t.difficulty !== 1}">fiber_manual_record</mat-icon>
+                                <mat-icon [ngClass]="{'filled-circle': t.difficulty === 2, 'empty-circle': t.difficulty !== 2}">fiber_manual_record</mat-icon>
+                                <mat-icon [ngClass]="{'filled-circle': t.difficulty === 3, 'empty-circle': t.difficulty !== tourDifficulty.Pro}">fiber_manual_record</mat-icon>
+                            </div>
+                            <br>
+                            <div>
+                                <p>{{t.tags}}</p>
+                                <p>Average Tour rating: {{bestRatedToursStats[i].numberOfStats}}</p>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+          </div>
+
+    </div>
+
+
+</div>

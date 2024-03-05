@@ -1,0 +1,60 @@
+.main-container {
+  background-image: url("../../../../assets/images/explore.jpg");
+  min-height: 100%;
+  height: auto;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+    gap:20px;
+    margin: 0 auto;
+    width: 50%;
+    max-width: 800px;
+    background-color: var(--white);
+    border-radius: 15px;
+  }
+
+.tourCreationForm{
+  width:100%;
+}
+
+.map {
+  display: block;
+  height: 450px;
+}
+
+.inputFieldContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputFieldContainer--row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputFieldContainer .inputFieldContainer--row:first-child {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.form-field {
+  flex: 1 1 0;
+}
+
+.buttons-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

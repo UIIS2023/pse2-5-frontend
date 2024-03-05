@@ -1,0 +1,35 @@
+div {
+    width: 600px;
+    max-width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust the box shadow as needed */
+    background-image: url("../../../../assets/images/followersBackground.jpg");
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 20px;
+    border: none; 
+    border-radius: 4px;
+    background-color: #7c875a;
+    color: white !important;;
+}

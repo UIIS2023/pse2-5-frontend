@@ -1,0 +1,7 @@
+<h1 mat-dialog-title class="custom-dialog-title">{{ data.name }}</h1>
+<h2 mat-dialog-title>{{data.description}}</h2>
+<img [src]="data.image" alt="no picture" style="width: 1200px; height: 600px;">
+<h1 mat-dialog-title class="custom-dialog-title" style="color: red;">{{ data.status }}</h1>
+<div mat-dialog-actions class="custom-dialog-actions">
+  <button mat-button (click)="closeDialog()" class="custom-dialog-button">Close</button>
+</div>

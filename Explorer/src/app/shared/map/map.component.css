@@ -1,0 +1,11 @@
+.map-frame {
+  display: block;
+  height: 92%;
+  border: 2px solid black;
+  width: 100%;
+  flex-direction: column;
+}
+
+.map {
+  height: 100%;
+}

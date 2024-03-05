@@ -1,0 +1,95 @@
+<div class="tour">
+  <div class="row">
+    <div class="col-sm-6">
+      <p>Tours</p>
+      <hr>
+      <div>
+      <xp-tour-search 
+        [shownTours] = "toursDisplay" 
+        (isClickedSearchChange) = "updateToursDisplay($event)">
+      </xp-tour-search>
+    </div>
+    <div class="card-container">
+        <mat-card (mouseenter)="getFirstTourKeypointById(t.id)" *ngFor="let t of toursDisplay; let idx = index"
+          class="tour-card" (click)="tourShow(t.id)">
+          <div *ngIf="firstKeyPoint" class="overlay">
+            <div class="info">
+              <h4>Starting Key Point: <b>{{ firstKeyPoint.name }}</b></h4>
+              <p class="keypoint-description">{{ firstKeyPoint.description }}</p>
+              <p>Longitude: {{ firstKeyPoint.longitude }}</p>
+              <p>Latitude: {{ firstKeyPoint.latitude }}</p>
+            </div>
+            <div class="slika">
+              <img src="{{firstKeyPoint.image}}">
+            </div>
+          </div>
+          <div class="card-image"
+            style="background-image: url('https://www.flimslaax.com/fileadmin/Daten/0Flims_Laax_Bilder/3-Outdoor/3-2-Wandern/3-2-1-Wanderwege/flims_laax_falera_wanderwege2.jpg');">
+            <mat-card-title class="card-title">
+              <p>{{t.name}}</p>
+              <p>{{t.price}} RSD</p>
+            </mat-card-title>
+            <p class="card-description">{{t.description}}</p>
+          </div>
+          <br>
+          <mat-card-content class="card-content">
+            <div class="circles-container">
+              <p class="tour-difficulty">Difficulty</p>
+              <mat-icon
+                [ngClass]="{'filled-circle': t.difficulty === 0, 'empty-circle': t.difficulty !== 0}">fiber_manual_record</mat-icon>
+              <mat-icon
+                [ngClass]="{'filled-circle': t.difficulty === 1, 'empty-circle': t.difficulty !== 1}">fiber_manual_record</mat-icon>
+              <mat-icon
+                [ngClass]="{'filled-circle': t.difficulty === 2, 'empty-circle': t.difficulty !== 2}">fiber_manual_record</mat-icon>
+              <mat-icon
+                [ngClass]="{'filled-circle': t.difficulty === 3, 'empty-circle': t.difficulty !== 3}">fiber_manual_record</mat-icon>
+            </div>
+            <br>
+            <div>
+              <p class="tour-tags">{{t.tags}}</p>
+              <button class="add-to-cart-button" type="submit" mat-raised-button
+                (click)="handleButtonClick($event, t, idx)" [disabled]="buttonStatus[idx]">Add to cart</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <p>Bundles</p>
+      <hr>
+      <div class="bundle-container">
+        <mat-card (mouseenter)="getBundleTours(bundle)" class="bundle-card" *ngFor="let bundle of bundles; let idx = index ">
+          <div *ngIf="bundle.toursId" class="overlay">
+            <div class="info">
+              <div *ngFor="let tour of toursInBundle">
+                <p>{{tour.name}} - Difficulty(1-4):{{tour.difficulty}} - {{tour.distanceInKm}}km - {{tour.price}}AC</p>
+                <br>
+              </div>
+            </div>
+          </div>
+          <mat-card-header>
+            <div>{{bundle.name}} - {{bundle.price}}AC</div><br>
+          </mat-card-header>
+          <mat-card-content class="mat-card-content bundle-content">
+            <div *ngFor="let imageUrl of bundle.toursId"
+              [style.background-image]="'url(https://www.flimslaax.com/fileadmin/Daten/0Flims_Laax_Bilder/3-Outdoor/3-2-Wandern/3-2-1-Wanderwege/flims_laax_falera_wanderwege2.jpg)'"
+              style="height: 150px; background-size: cover;  padding: 0; width: calc(50% - 40px);">
+            </div>
+          </mat-card-content>
+          <mat-card-footer>
+            <button class="add-to-cart-button" type="submit" mat-raised-button
+             (click)="addToCartBundle(bundle, idx)" [disabled]="bundleButtonStatus[idx]">Add to cart {{idx}}</button>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-right-button-container">
+    <button class="bottom-right-button" mat-icon-button (click)="openTourSearch()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button class="bottom-left-button" mat-icon-button (click)="refreshDisplay()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+</div>

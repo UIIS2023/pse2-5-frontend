@@ -1,0 +1,54 @@
+<div class="position-simulator-wrapper">
+    <xp-map [mapId]="'position-simulator-map'" class="map"></xp-map>
+
+    <div class="btn-wrapper">
+        <button class="btn-update" (click)="updateLocation()">Update Location</button>
+        <div *ngIf="enableCompleteButton; else disabledButton">
+          <button class="btn-complete" (click)="completeTour()">Complete tour</button>
+        </div>
+
+        <button class="btn-activate" *ngIf="isActivateChallenge" (click)="activateChallenge()">Activate challenge</button>
+        <button class="btn-complete" *ngIf="isCompleteChallenge" (click)="completeChallenge()">Complete challenge</button>
+        <button class="btn-picture" *ngIf="isShowPicture" (click)="showPictureAgain()">Show picture again</button>
+        <button class="btn-abandon" *ngIf="isAbandonChallenge" (click)="abandonChallenge()">Abandon challenge</button>
+
+        <ng-template #disabledButton>
+          <button mat-raised-button class="btn-complete disabled" disabled>
+            Complete tour
+          </button>
+        </ng-template>
+        <button class="btn-abandon" (click)="abandonTour()">Abandon tour</button>
+    </div>
+    <div *ngIf="validForForm" class="centered-form mb-5">
+      <form [formGroup]="tourratingForm" class="rate-form">
+        <div class="form-group">
+          <div class="display-6 ps-2 py-2 text-success ">
+            Write about tour
+          </div>
+          <mat-form-field>
+            <mat-label for="grade">Grade</mat-label>
+            <mat-select matInput formControlName="grade">
+              <mat-option value="1">1</mat-option>
+              <mat-option value="2">2</mat-option>
+              <mat-option value="3">3</mat-option>
+              <mat-option value="4">4</mat-option>
+              <mat-option value="5">5</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label for="comment">Comment</mat-label>
+            <textarea matInput formControlName="comment" cdkTextareaAutosize></textarea>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <mat-label for="image">Image</mat-label>
+            <input matInput formControlName="image" type="text" />
+          </mat-form-field>
+          <div class="buttons">
+            <button class="btn btn-light px-5" (click)="closeForm()">Close</button>
+            <button class="btn btn-success px-5" (click)="addTourRating()">Rate</button>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>

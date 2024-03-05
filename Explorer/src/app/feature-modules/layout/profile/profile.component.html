@@ -1,0 +1,86 @@
+<div class="my-profile-wrapper">
+    <div class="row">
+        <div class="col-sm-6 d-flex justify-content-end">
+            <div class="profile-info position-relative">
+                <form [formGroup]="profileDetailsForm">
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="d-flex justify-content-start pt-3 pb-3 ps-5">
+                                <div class="box box2 d-flex">
+                                    <div class="evenboxinner">
+                                        <img mat-card-image [src]="profileDetailsForm.get('profilePic')!.value"
+                                            alt="avatar" class="avatar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 follow-info">
+                            <div class="d-flex justify-content-around">
+                                <div class="d-flex flex-column mx-3">
+                                    <p class="mb-0">{{purchased_tours}}</p>
+                                    <p class="follower-link">tours</p>
+                                </div>
+                                <div class="d-flex flex-column mx-3">
+                                    <p class="mb-0">{{myFollowers.length}}</p>
+                                    <p class="follower-link" (click)="showFollowers()">followers</p>
+                                </div>
+                                <div class="d-flex flex-column mx-3">
+                                    <p class="mb-0">{{myFollowings.length}}</p>
+                                    <p class="follower-link" (click)="showFollowings()">following</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center flex-column ps-2 pe-2">
+                        <mat-form-field class="example-form-field">
+                            <mat-label>Name</mat-label>
+                            <input matInput type="text" formControlName="name">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-form-field">
+                            <mat-label>Surname</mat-label>
+                            <input matInput type="text" formControlName="surname">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-form-field">
+                            <mat-label>Biography</mat-label>
+                            <input matInput type="text" formControlName="biography">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-form-field">
+                            <mat-label>Motto</mat-label>
+                            <input matInput type="text" formControlName="motto">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-form-field" *ngIf="isDisabled === false">
+                            <mat-label>Profile pictur URL</mat-label>
+                            <input matInput type="text" formControlName="profilePic">
+                        </mat-form-field>
+                    </div>
+                </form>
+                <div class="d-flex justify-content-end pe-2 pb-2 position-absolute bottom-0 end-0">
+                    <button mat-raised-button (click)="enableUpdate()" class="update-button">Update</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 flex-column">
+            <div class="tour-info">
+                <p class = "paragrpah-tour">Used tours</p>
+
+               
+                    <div *ngFor="let tour of tours" class="tour-card" (click)="showTourAllDetails(tour.id)"
+                    style="background-image: url('https://www.flimslaax.com/fileadmin/Daten/0Flims_Laax_Bilder/3-Outdoor/3-2-Wandern/3-2-1-Wanderwege/flims_laax_falera_wanderwege2.jpg');">
+                      <h3>{{ tour.name }}</h3>
+                      <p>{{ tour.description }}</p>
+                      <p class="price">{{ tour.price }}</p>
+                    </div>
+              
+  
+            </div>
+            <div class="tour-info">
+
+            </div>
+        </div>
+    </div>
+</div>

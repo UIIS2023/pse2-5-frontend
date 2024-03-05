@@ -1,0 +1,17 @@
+<div class="discount-sale-form">
+
+    <h1>Set Your Discount!</h1>
+    <div class="discount-percentage-wrapper">
+        <label id="percentage">Discount(%):</label>
+        <input id="percentage-input" type="number" [(ngModel)]="salesData.discountPercentage"/>
+    </div>
+    <div class="end-date-wrapper">
+        <label id="date">End Date:</label>
+        <input type="date" [(ngModel)]="salesData.endDate" [min]="minEndDate()" [max]="maxEndDate()"/>
+    </div>
+    
+    <button id="save-btn" (click)="saveSaleDiscount()" [disabled]="isDiscountSaved">SAVE</button>
+    <button id="remove-btn" (click)="removeSaleDiscount()">REMOVE</button>
+
+</div>
+

@@ -1,0 +1,18 @@
+<div class="application-rating-form-wrapper">
+  <form [formGroup]="applicationRatingForm">
+    <div class="form-div">
+      <mat-form-field>
+        <mat-label>Grade</mat-label>
+        <input matInput formControlName="grade" type="text" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Comment</mat-label>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" formControlName="comment"
+          cdkAutosizeMaxRows="5"></textarea>
+      </mat-form-field>
+      <button color="primary" type="submit" (click)="addApplicationRating()" mat-raised-button>
+        Done
+      </button>
+    </div>
+  </form>
+</div>

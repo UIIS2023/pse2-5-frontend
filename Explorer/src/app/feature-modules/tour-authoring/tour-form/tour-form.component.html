@@ -1,0 +1,133 @@
+<div class="main-container">
+  <div class="centered-container">
+    <form class="tourCreationForm" [formGroup]="tourForm">
+      <div class="inputFieldContainer">
+        <div class="inputFieldContainer--row">
+          <mat-form-field class="form-field">
+            <mat-label>Name:</mat-label>
+            <input matInput formControlName="name" type="text" />
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <mat-label>Difficulty:</mat-label>
+            <mat-select class="selectDiff" formControlName="difficulty">
+              <mat-option value="0">Beginner</mat-option>
+              <mat-option value="1">Intermediate</mat-option>
+              <mat-option value="2">Advanced</mat-option>
+              <mat-option value="3">Pro</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="inputFieldContainer--row">
+          <mat-form-field class="form-field">
+            <mat-label>Description:</mat-label>
+            <textarea
+              matInput
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="5"
+              formControlName="description"
+              cdkAutosizeMaxRows="5"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <div class="inputFieldContainer--row">
+          <mat-form-field
+            class="form-field"
+            matTooltip="Every tag must start with '#'"
+          >
+            <mat-label>Tags:</mat-label>
+            <textarea
+              matInput
+              formControlName="tags"
+              type="text"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="2"
+              cdkAutosizeMaxRows="2"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <label>Key points: </label>
+      <button mat-button (click)="onAddKeyPoint()">
+        <mat-icon>add</mat-icon>
+        Add Key point
+      </button>
+      <button mat-button (click)="onAddPublicKeyPoint()">
+        <mat-icon>add</mat-icon>
+        Select public key point
+      </button>
+      <xp-map class="map" [mapId]="'tour-form-map'"></xp-map>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Transportation methods
+          </mat-panel-title>
+          <mat-panel-description>
+            Select transportation methods
+            <mat-icon>directions_car</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      
+        <div class="p-3">
+          <div class="row">
+            <div class="col-4">
+              <div class="form-check form-check-inline">
+                <mat-checkbox class="example-margin" (change)="toggleFieldWalk()" [checked]="isWalkChecked">
+                  <mat-icon>directions_walk</mat-icon> Walking
+                </mat-checkbox>
+                <div *ngIf="showFieldWalk" class="mt-2">
+                  <input type="number"
+                  class="form-control-sm" placeholder="Estimated time in minutes..."
+                  formControlName="walkTime">
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-4">
+              <div class="form-check form-check-inline">
+                <mat-checkbox class="example-margin" (change)="toggleFieldBicycle()" [checked]="isBicycleChecked">
+                  <mat-icon>directions_bike</mat-icon> Bicycle
+                </mat-checkbox>
+                <div *ngIf="showFieldBicycle" class="mt-2">
+                  <input type="number" 
+                  class="form-control-sm" placeholder="Estimated time in minutes..."
+                  formControlName="bicycleTime">
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-4">
+              <div class="form-check form-check-inline">
+                <mat-checkbox class="example-margin" (change)="toggleFieldCar()" [checked]="isCarChecked">
+                  <mat-icon>directions_car</mat-icon> Car
+                </mat-checkbox>
+                <div *ngIf="showFieldCar" class="mt-2">
+                  <input type="number" 
+                  class="form-control-sm" placeholder="Estimated time in minutes..."
+                  formControlName="carTime">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+
+
+      <div class="buttons-container" *ngIf="mode === 0">
+        <button class="custom-button" (click)="cancelCreation()" mat-raised-button>Cancel</button>
+        <button class="custom-button" type="submit" (click)="createTour()" mat-raised-button>
+          Create
+        </button>
+      </div>
+    
+      <div class="buttons-container" *ngIf="mode === 1">
+        <button class="custom-button" (click)="cancelUpdate()" mat-raised-button>Cancel</button>
+        <button class="custom-button" type="submit" (click)="createTour()" mat-raised-button>
+          Save
+        </button>
+      </div>
+    
+    
+    </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div id="equipment">
+    <p>Necessary equipment</p>
+    <hr>
+    <div id="equipment-details">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Naziv</th>
+                        <th>Opis</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let eq of usedEquipment">
+                        <td>{{eq.name}}</td>
+                        <td>{{eq.description}}</td>
+                        <td>
+                            <button color="accent" (click)="moveToUnused(eq)" mat-icon-button>
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr><button color="primary" (click)="onAddClicked()" mat-icon-button>
+                            <mat-icon>{{displayIcon}}</mat-icon>
+                        </button></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <xp-unused-equipment *ngIf="shouldRenderUnusedEquipment" (equipmentMoved)="getEquipment()" [tour]="tour"
+            [usedChanged]="usedEquipment"></xp-unused-equipment>
+    </div>
+</div>
